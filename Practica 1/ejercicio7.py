@@ -4,8 +4,23 @@
 from functools import reduce
 from math import ceil
 
-
 def es_palindromo(palabra: str) -> bool:
+    invertida = palabra[::-1]
+    print(invertida)
+
+    if(invertida == palabra):
+        return True
+    else:
+        return False
+
+# NO MODIFICAR - INICIO
+assert not es_palindromo("amor")
+assert es_palindromo("radar")
+assert es_palindromo("")
+# NO MODIFICAR - FIN
+
+
+def es_palindromo_lambda(palabra: str) -> bool:
     """Toma un string y devuelve un booleano en base a si se lee igual al
     derecho y al revés.
     Restricción: No utilizar bucles - Usar Slices de listas.
@@ -21,9 +36,9 @@ def es_palindromo(palabra: str) -> bool:
 
 
 # NO MODIFICAR - INICIO
-assert not es_palindromo("amor")
-assert es_palindromo("radar")
-assert es_palindromo("")
+assert not es_palindromo_lambda("amor")
+assert es_palindromo_lambda("radar")
+assert es_palindromo_lambda("")
 # NO MODIFICAR - FIN
 
 
