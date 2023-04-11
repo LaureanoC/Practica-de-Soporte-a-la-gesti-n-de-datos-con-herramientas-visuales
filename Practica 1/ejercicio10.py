@@ -51,8 +51,11 @@ def tiene_pares_any(numeros: Iterable[int]) -> bool:
     """Re-Escribir utilizando la función any, sin utilizar bucles.
     Referencia: https://docs.python.org/3/library/functions.html#any
     """
+    # any(iterable) como resultado debe quedar un iterable
 
-    pass # Completar
+    print(numeros)
+    print(any((numero % 2 == 0) in numeros for numero in numeros))
+    return (any((numero % 2 == 0) in numeros for numero in numeros)) # Sin bucles no se me ocurre
 
 
 # NO MODIFICAR - INICIO
