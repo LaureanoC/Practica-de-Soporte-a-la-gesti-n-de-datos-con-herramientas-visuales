@@ -8,7 +8,7 @@ def multiplicar_basico(numeros: Iterable[float]) -> float:
     la lista está vacia debe devolver 0.
     Restricciones: No usar bibliotecas auxiliares (Numpy, math, pandas).
     """
-    if(len(numeros) == 0):
+    if(len(numeros) == 0): ## Si pongo if not numeros: funciona tambien
         return 0
     resultado = 1
     for numero in numeros:
@@ -42,6 +42,8 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
         return 0
     return reduce(lambda x, y: x * y, numeros)
     
+ # return 0 if not numeros else reduce(lambda x,y: x*y, numeros)
+
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

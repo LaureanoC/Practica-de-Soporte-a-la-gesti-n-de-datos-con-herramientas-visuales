@@ -13,6 +13,9 @@ def es_palindromo(palabra: str) -> bool:
     else:
         return False
 
+ #palabras_reves = palabra[::-1]
+ #return palabras_reves
+
 # NO MODIFICAR - INICIO
 assert not es_palindromo("amor")
 assert es_palindromo("radar")
