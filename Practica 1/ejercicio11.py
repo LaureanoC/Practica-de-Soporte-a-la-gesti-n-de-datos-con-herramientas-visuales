@@ -15,11 +15,6 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     for cubo in cubos:
         if(cubo % 2 == 0):
             
-
-
-    
-
-
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
@@ -34,7 +29,18 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
-    pass # Completar
+
+    # [expresión for elemento in iterable condición opcional]
+
+    # expresión es el valor que se asignará a la lista resultante luego de aplicar compresión
+    # elemento es var temp
+    # el iterable
+    # condición opcional es una expresión booleana que sirve para filtrar y aquellos que cumplan quedan 
+    # en la lista resultante
+    # print(sum([num*num*num for num in numeros if(((num*num*num) % 2) == 0)]))
+    # num**2 -> num al cuadrado
+    return sum([num**3 for num in numeros if(((num**3) % 2) == 0)])
+
 
 
 # NO MODIFICAR - INICIO
@@ -49,8 +55,29 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     """ Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
     y la función sum.
     Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
+    """  
+    """  Información que encontré sobre expresiónes generadoras:
+    
+        Una expresión generadora es una forma compacta y eficiente de crear un objeto generador,
+        que es una secuencia de elementos que se generan bajo demanda 
+        (permiten obtener elementos uno a uno a medida que se necesitan, en lugar de cargar todos
+        los elementos en memoria de una vez.), 
+        en lugar de crear una lista completa en memoria como lo haría una compresión
+        de listas.
+        Esto puede ser útil cuando se trabaja con grandes cantidades de datos
+        o cuando se desea optimizar el uso de memoria en programas Python.
+
+        Los objetos generadores se crean utilizando una función generadora o una expresión generadora.
+        Las funciones generadoras tienen una o mas declaraciones yield, 
+        que especifican los valores que se deben generar en cada iteración.
     """
-    pass # Completar
+    # La sintaxis de las expresiones generadoras es muy parecida a la compresión de listas, va con ()
+    # (expresión for elemento in iterable condición opcional)
+    # print(sum((num**3) for num in numeros if(((num**3) % 2) == 0)))
+    
+    return sum(num**3 for num in numeros if((num**3) % 2 == 0))
+    
+
 
 
 # NO MODIFICAR - INICIO
