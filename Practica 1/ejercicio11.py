@@ -11,15 +11,10 @@ def suma_cubo_pares_for(numeros: Iterable[int]) -> int:
     """
     cubos = []
     for numero in numeros:
-       cubos.append(numero*numero*numero)
-    
+        cubos.append(numero**3)
     for cubo in cubos:
-        if(cubo % 2 != 0):
-            cubos.remove(cubo)
-
-    return sum(cubos)
-
-
+        if(cubo % 2 == 0):
+            
 # NO MODIFICAR - INICIO
 assert suma_cubo_pares_for([1, 2, 3, 4, 5, 6]) == 288
 # NO MODIFICAR - FIN
@@ -34,6 +29,7 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     Referencia: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     Referencia: https://docs.python.org/3/library/functions.html#sum
     """
+
     # [expresión for elemento in iterable condición opcional]
 
     # expresión es el valor que se asignará a la lista resultante luego de aplicar compresión
@@ -43,8 +39,8 @@ def suma_cubo_pares_sum_list(numeros: Iterable[int]) -> int:
     # en la lista resultante
     # print(sum([num*num*num for num in numeros if(((num*num*num) % 2) == 0)]))
     # num**2 -> num al cuadrado
-
     return sum([num**3 for num in numeros if(((num**3) % 2) == 0)])
+
 
 
 # NO MODIFICAR - INICIO
@@ -59,8 +55,7 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     """ Re-Escribir utilizando expresiones generadoras (debe resolverse en 1 línea)
     y la función sum.
     Referencia: https://docs.python.org/3/reference/expressions.html#generator-expressions
-    """
-    
+    """  
     """  Información que encontré sobre expresiónes generadoras:
     
         Una expresión generadora es una forma compacta y eficiente de crear un objeto generador,
@@ -82,6 +77,7 @@ def suma_cubo_pares_sum_gen(numeros: Iterable[int]) -> int:
     
     return sum(num**3 for num in numeros if((num**3) % 2 == 0))
     
+
 
 
 # NO MODIFICAR - INICIO

@@ -19,7 +19,7 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     print(letras + numeros)
     return letras + numeros
             
-
+# alternativa profe numeros =
 
 # NO MODIFICAR - INICIO
 assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 1, 10]
