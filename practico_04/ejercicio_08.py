@@ -2,10 +2,11 @@
 
 import datetime
 
-from practico_04.ejercicio_02 import agregar_persona
-from practico_04.ejercicio_06 import reset_tabla
-from practico_04.ejercicio_07 import agregar_peso
-
+from ejercicio_02 import agregar_persona
+from ejercicio_06 import reset_tabla
+from ejercicio_07 import agregar_peso
+from ejercicio_04 import buscar_persona
+import sqlite3
 
 def listar_pesos(id_persona):
     """Implementar la funcion listar_pesos, que devuelva el historial de pesos 
@@ -30,7 +31,19 @@ def listar_pesos(id_persona):
 
     - False en caso de no cumplir con alguna validacion.
     """
-    return []
+    persona = buscar_persona(id_persona)
+    print("Persona es")
+    print(persona)
+    if persona == False: 
+        return False
+    
+    conn = sqlite3.connect("example.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT fecha, peso FROM PersonaPeso WHERE idPersona=?", (id_persona,))
+
+    filas = cursor.fetchall()
+    print(filas)
+    return filas
 
 
 # NO MODIFICAR - INICIO

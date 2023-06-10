@@ -26,18 +26,38 @@ def agregar_peso(id_persona, fecha, peso):
     fecha = fecha.strftime('%Y-%m-%d') #Convertimos a str
 
     persona = buscar_persona(id_persona)
-    if persona is bool:
+    print("Persona es")
+    print(persona)
+    if persona == False:
+        print("Es bool")
         return False
+    
     conn = sqlite3.connect("example.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT fecha from PersonaPeso WHERE idPersona =?", (id_persona,))
 
-    conn.commit() #ejecuto
-
-    if cursor.rowcount == 0:
-        cursor.execute("INSERT INTO PersonaPeso (idPersona, fecha, peso) VALUES (?,?,?)", (id_persona,fecha, peso))
+    cursor.execute("SELECT fecha from PersonaPeso WHERE idPersona=? and fecha>?", (id_persona,fecha))
     
-    filas_fechas = cursor.fetchall()
+    filas = cursor.fetchall()
+
+    filas_afectadas = len(filas)
+
+    print(filas_afectadas)
+
+    if filas_afectadas > 0:
+        return False
+    
+    cursor.execute("INSERT INTO PersonaPeso (idPersona, fecha, peso) VALUES (?,?,?)", (id_persona,fecha,peso))
+    conn.commit()
+
+    ultimo_id = cursor.lastrowid
+    return ultimo_id
+
+    
+
+    
+
+    
+
 
 
 

@@ -12,9 +12,10 @@ def crear_tabla_peso():
     conn = sqlite3.connect("example.db")
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE PersonaPeso(
-    idPersona INTEGER PRIMARY KEY,
-    fecha DATE PRIMARY KEY,
+    idPersona INTEGER,
+    fecha DATE,
     peso INTEGER,
+    PRIMARY KEY (idPersona, fecha)
     FOREIGN KEY (idPersona) REFERENCES Persona (idPersona)
     )''')
 
